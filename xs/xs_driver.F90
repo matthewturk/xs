@@ -18,9 +18,12 @@
        end interface
        call pyset(c_char_"xs")
        call pyinit()
-       call pyrun(c_char_"import yt")
-       call pyrun(c_char_"ds = yt.load('IsolatedGalaxy/galaxy0030/galaxy0030')"//NEW_LINE(''))
-       call pyrun(c_char_"p = yt.SlicePlot(ds, 'x', 'temperature')"//NEW_LINE(''))
+       call pyrun(c_char_"import yt"//NEW_LINE(''))
+       call pyrun(c_char_"ds = yt.load('IsolatedGalaxy/galaxy0030/&
+                    &galaxy0030')"//NEW_LINE(''))
+       call pyrun(c_char_"p = yt.SlicePlot(ds, 'x', 'temperature')&
+                    &"//NEW_LINE(''))
        call pyrun(c_char_"print p.save()"//NEW_LINE(''))
+       call pyrun(c_char_""//NEW_LINE(''))
        call pyfinalize()
        end
